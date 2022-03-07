@@ -2,7 +2,11 @@
 const express = require("express");
 
 //inter exports
-const { getUsers, addUser } = require("../controller/usersController.js");
+const {
+  getUsers,
+  addUser,
+  removeUser,
+} = require("../controller/usersController.js");
 const decorateHtmlResponse = require("../middlewares/common/decorateHtmlResponse.js");
 const avatarUpload = require("../middlewares/users/avatarUpload.js");
 const {
@@ -23,5 +27,8 @@ router.post(
   addUserValidationHandler,
   addUser
 );
+
+// remove user
+router.delete("/:id", removeUser);
 
 module.exports = router;
