@@ -1,9 +1,19 @@
 // external imports
 const bcrypt = require("bcrypt");
 
+// internal imports
+const User = require("../models/People.js");
+
 // get users page
-function getUsers(req, res, next) {
-  res.render("users");
+async function getUsers(req, res, next) {
+  try {
+    const users = await User.find();
+    res.render("users", {
+      users,
+    });
+  } catch (err) {
+    next(err);
+  }
 }
 
 // add user
