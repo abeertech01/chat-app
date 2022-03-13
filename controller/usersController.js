@@ -4,7 +4,7 @@ const { unlink } = require("fs");
 const path = require("path");
 
 // internal imports
-const User = require("../models/People.js");
+const User = require("../models/People");
 
 // get users page
 async function getUsers(req, res, next) {
@@ -46,7 +46,7 @@ async function addUser(req, res, next) {
     res.status(500).json({
       errors: {
         common: {
-          msg: "Unknown error occurred!",
+          msg: "Unknown error occured!",
         },
       },
     });

@@ -22,7 +22,7 @@ const checkLogin = (req, res, next) => {
         res.status(500).json({
           errors: {
             common: {
-              msg: "Authentication failure",
+              msg: "Authentication failure!",
             },
           },
         });
@@ -33,7 +33,7 @@ const checkLogin = (req, res, next) => {
       res.redirect("/");
     } else {
       res.status(401).json({
-        error: "Authentication failure!",
+        error: "Authetication failure!",
       });
     }
   }
